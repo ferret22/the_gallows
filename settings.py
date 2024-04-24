@@ -8,4 +8,3 @@ class SettingsWindow(QWidget):
         QWidget.__init__(self, parent)
         self.ui = Ui_SettingsWindow()
         self.ui.setupUi(self)
-

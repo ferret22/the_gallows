@@ -6,13 +6,13 @@ def check_language():
         language = language_file.read()
     language_file.close()
 
-    if language == 'ru\n':
-        return 1
-
-    if language == 'en\n':
-        return 2
-
-    return False
+    match language:
+        case 'ru\n':
+            return 1
+        case 'en\n':
+            return 2
+        case _:
+            return False
 
 
 def refactor_words(words: list[str]):
@@ -28,19 +28,20 @@ def refactor_words(words: list[str]):
 def open_words():
     language = check_language()
 
-    if language == 1:
-        with open('settings/words_ru.txt', 'r') as path_file:
-            words = path_file.readlines()
-            words = refactor_words(words)
-            return words
+    match language:
+        case 1:
+            return open_word_file('ru')
+        case 2:
+            return open_word_file('en')
+        case _:
+            return False
 
-    if language == 2:
-        with open('settings/words_en.txt', 'r') as path_file:
-            words = path_file.readlines()
-            words = refactor_words(words)
-            return words
 
-    return False
+def open_word_file(lang: str):
+    with open(f'settings/words_{lang}.txt', 'r') as path_file:
+        words = path_file.readlines()
+        words = refactor_words(words)
+        return words
 
 
 def select_random_word():
