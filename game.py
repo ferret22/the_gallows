@@ -11,7 +11,6 @@ class GameWindow(QWidget):
         self.ui = Ui_GameWindow()
         self.ui.setupUi(self)
 
-        self.error = QErrorMessage(self)
         self.msg_info = QMessageBox(self)
 
         self.random_word = Word(select_random_word())
@@ -27,10 +26,6 @@ class GameWindow(QWidget):
         self.msg_info.setIcon(QMessageBox.Information)
         self.msg_info.show()
 
-    def ms_error(self, title: str, message: str, type_error: str):
-        self.error.setWindowTitle(title)
-        self.error.showMessage(message, type_error)
-
     def get_sign(self):
         sign = self.ui.signEdit.text()
         if len(sign) == 1:
@@ -42,14 +37,14 @@ class GameWindow(QWidget):
             lose_flag, win_flag = self.random_word.guess_letter(sign)
 
             if lose_flag:
-                self.ui.signEdit.setText(self.random_word.letters)
+                self.ui.wordLabel.setText(self.random_word.letters)
                 self.ui.tryNum.display(self.random_word.tries)
 
                 if win_flag:
-                    self.show_msg_info(f"You won!\nWord: {self.random_word.word}", 'The Gallows')
+                    self.show_msg_info(f"Вы выиграли!\nСлово: {self.random_word.word}", 'The Gallows')
                     self.set_disabled()
             else:
-                self.show_msg_info(f'You lose!\nWord: {self.random_word.word}', 'The Gallows')
+                self.show_msg_info(f'Вы проиграли!\nСлово: {self.random_word.word}', 'The Gallows')
                 self.set_disabled()
 
     def set_disabled(self):

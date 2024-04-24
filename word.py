@@ -9,6 +9,7 @@ class Word:
 
     def guess_letter(self, letter: str):
         self.chars.append(letter)
+        self.count_tries(letter)
         self.letters = ''
 
         for char in self.word:
@@ -16,7 +17,6 @@ class Word:
                 self.letters += char
             else:
                 self.letters += '*'
-        self.count_tries(letter)
 
         return self.check_lose(), self.check_win()
 
@@ -36,5 +36,5 @@ class Word:
 
     def check_win(self):
         if '*' in self.letters:
-            return True
-        return False
+            return False
+        return True
