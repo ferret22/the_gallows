@@ -47,11 +47,12 @@ class GameWindow(QWidget):
 
                 if win_flag:
                     self.show_msg_info(f"You won!\nWord: {self.random_word.word}", 'The Gallows')
-                    self.ui.signEdit.setDisabled(True)
-                    self.ui.checkWord.setDisabled(True)
-                    self.ui.wordLabel.setText(self.random_word.word)
+                    self.set_disabled()
             else:
                 self.show_msg_info(f'You lose!\nWord: {self.random_word.word}', 'The Gallows')
-                self.ui.signEdit.setDisabled(True)
-                self.ui.checkWord.setDisabled(True)
-                self.ui.wordLabel.setText(self.random_word.word)
+                self.set_disabled()
+
+    def set_disabled(self):
+        self.ui.signEdit.setDisabled(True)
+        self.ui.checkWord.setDisabled(True)
+        self.ui.wordLabel.setText(self.random_word.word)
