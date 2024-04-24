@@ -5,27 +5,20 @@ class Word:
         self.length = len(word)
         self.tries = int(len(word) / 2.3)
         self.chars = []
-        self.letters = ['*'] * self.length
+        self.letters = '*' * self.length
 
     def guess_letter(self, letter: str):
         self.chars.append(letter)
-        self.letters = []
+        self.letters = ''
 
         for char in self.word:
             if char in self.chars:
-                self.letters.append(char)
+                self.letters += char
             else:
-                self.letters.append('*')
+                self.letters += '*'
         self.count_tries(letter)
 
-        if self.check_lose():
-            print(f"Попытки: {self.tries}")
-            print(*self.letters, sep='')
-            return True
-        else:
-            print('Вы проиграли!')
-            print(f'Было слово: {self.word}')
-            return False
+        return self.check_lose(), self.check_win()
 
     def count_tries(self, letter: str):
         letter_count = self.word.count(letter)
