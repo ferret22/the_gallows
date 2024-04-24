@@ -50,17 +50,22 @@ class Ui_MainWindow(object):
         self.label.setMidLineWidth(3)
         self.label.setAlignment(Qt.AlignCenter)
 
-        self.gridLayout.addWidget(self.label, 0, 0, 1, 2)
+        self.gridLayout.addWidget(self.label, 0, 0, 1, 3)
 
         self.startButton = QPushButton(self.centralwidget)
         self.startButton.setObjectName(u"startButton")
 
         self.gridLayout.addWidget(self.startButton, 1, 0, 1, 1)
 
+        self.settingsButton = QPushButton(self.centralwidget)
+        self.settingsButton.setObjectName(u"settingsButton")
+
+        self.gridLayout.addWidget(self.settingsButton, 1, 1, 1, 1)
+
         self.exitButton = QPushButton(self.centralwidget)
         self.exitButton.setObjectName(u"exitButton")
 
-        self.gridLayout.addWidget(self.exitButton, 1, 1, 1, 1)
+        self.gridLayout.addWidget(self.exitButton, 1, 2, 1, 1)
 
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QMenuBar(MainWindow)
@@ -80,6 +85,7 @@ class Ui_MainWindow(object):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"The Gallows", None))
         self.label.setText(QCoreApplication.translate("MainWindow", u"The Gallows", None))
         self.startButton.setText(QCoreApplication.translate("MainWindow", u"\u041d\u0430\u0447\u0430\u0442\u044c \u0438\u0433\u0440\u0443", None))
+        self.settingsButton.setText(QCoreApplication.translate("MainWindow", u"\u041d\u0430\u0441\u0442\u0440\u043e\u0439\u043a\u0438", None))
         self.exitButton.setText(QCoreApplication.translate("MainWindow", u"\u0417\u0430\u043a\u0440\u044b\u0442\u044c \u0438\u0433\u0440\u0443", None))
     # retranslateUi
 
