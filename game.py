@@ -6,14 +6,15 @@ from ui.game_ui import Ui_GameWindow
 
 class GameWindow(QWidget):
 
-    def __init__(self, parent=None):
+    def __init__(self, settings: str, parent=None):
         QWidget.__init__(self, parent)
         self.ui = Ui_GameWindow()
         self.ui.setupUi(self)
 
         self.msg_info = QMessageBox(self)
+        self.settings = settings
 
-        self.random_word = Word(select_random_word())
+        self.random_word = Word(select_random_word(settings))
 
         self.ui.tryNum.display(self.random_word.tries)
         self.ui.wordLabel.setText('*' * self.random_word.length)

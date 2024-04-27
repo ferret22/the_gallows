@@ -1,10 +1,22 @@
-from PySide2.QtWidgets import *
-from ui.settings_ui import Ui_SettingsWindow
+import files
 
 
-class SettingsWindow(QWidget):
+class Settings:
 
-    def __init__(self, parent=None):
-        QWidget.__init__(self, parent)
-        self.ui = Ui_SettingsWindow()
-        self.ui.setupUi(self)
+    @staticmethod
+    def set_default():
+        with open(files.default_settings, 'r') as default_settings:
+            settings = default_settings.read()
+        default_settings.close()
+
+        with open(files.settings_file, 'w') as settings_file:
+            settings_file.write(settings)
+        settings_file.close()
+
+    @staticmethod
+    def load_settings():
+        with open(files.settings_file, 'r') as settings_file:
+            settings = settings_file.read()
+        settings_file.close()
+
+        return settings

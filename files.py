@@ -1,0 +1,6 @@
+settings_file = 'settings/settings'
+words_en = 'settings/words_en'
+words_ru = 'settings/words_ru'
+default_en_words = 'settings/default/default_en_words'
+default_ru_words = 'settings/default/default_ru_words'
+default_settings = 'settings/default/default_settings'
