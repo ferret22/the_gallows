@@ -1,4 +1,4 @@
-from PySide2.QtWidgets import *
+from PySide2.QtWidgets import QMainWindow, QApplication
 from ui.main_ui import Ui_MainWindow
 import sys
 from game import GameWindow

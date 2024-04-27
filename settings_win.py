@@ -1,4 +1,4 @@
-from PySide2.QtWidgets import *
+from PySide2.QtWidgets import QWidget
 from ui.settings_ui import Ui_SettingsWindow
 import files
 from settings import Settings

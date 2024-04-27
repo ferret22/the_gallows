@@ -1,6 +1,6 @@
 from words_getter import select_random_word
 from word import Word
-from PySide2.QtWidgets import *
+from PySide2.QtWidgets import QWidget, QMessageBox
 from ui.game_ui import Ui_GameWindow
 
 
