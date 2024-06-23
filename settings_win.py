@@ -23,6 +23,9 @@ class SettingsWindow(QWidget, Settings):
         self.parent_win.set_language()
         self.close()
 
+    def closeEvent(self, event):
+        self.cancel_settings()
+
     def save_settings(self) -> None:
         language = self.ui.comboLanguage.currentText()
         with open(files.settings_file, 'w') as language_file:
