@@ -2,7 +2,7 @@ import random
 import files
 
 
-def check_language(settings: str):
+def check_language(settings: str) -> int | bool:
     language = settings[:5]
 
     match language:
@@ -14,7 +14,7 @@ def check_language(settings: str):
             return False
 
 
-def refactor_words(words: list[str]):
+def refactor_words(words: list[str]) -> list[str]:
     answer = []
 
     for word in words:
@@ -24,7 +24,7 @@ def refactor_words(words: list[str]):
     return answer
 
 
-def open_words(settings: str):
+def open_words(settings: str) -> list[str] | bool:
     language = check_language(settings)
 
     match language:
@@ -36,14 +36,14 @@ def open_words(settings: str):
             return False
 
 
-def open_word_file(file: str):
+def open_word_file(file: str) -> list[str]:
     with open(file, 'r') as path_file:
         words = path_file.readlines()
         words = refactor_words(words)
         return words
 
 
-def select_random_word(settings: str):
+def select_random_word(settings: str) -> str | bool:
     words = open_words(settings)
 
     if words:

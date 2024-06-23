@@ -7,7 +7,7 @@ class Word:
         self.chars = []
         self.letters = '*' * self.length
 
-    def guess_letter(self, letter: str):
+    def guess_letter(self, letter: str) -> tuple[bool, bool]:
         self.chars.append(letter)
         self.count_tries(letter)
         self.letters = ''
@@ -20,7 +20,7 @@ class Word:
 
         return self.check_lose(), self.check_win()
 
-    def count_tries(self, letter: str):
+    def count_tries(self, letter: str) -> None:
         letter_count = self.word.count(letter)
         if letter_count == 0:
             self.tries -= 1
@@ -29,12 +29,12 @@ class Word:
         if letter_count > 0:
             self.tries -= 1
 
-    def check_lose(self):
+    def check_lose(self) -> bool:
         if self.tries < 0:
             return False
         return True
 
-    def check_win(self):
+    def check_win(self) -> bool:
         if '*' in self.letters:
             return False
         return True
