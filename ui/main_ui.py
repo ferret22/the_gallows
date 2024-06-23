@@ -58,16 +58,28 @@ class Ui_MainWindow(object):
 
         self.startButton = QPushButton(self.centralwidget)
         self.startButton.setObjectName(u"startButton")
+        icon1 = QIcon()
+        icon1.addFile(u":/win/game.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.startButton.setIcon(icon1)
+        self.startButton.setIconSize(QSize(32, 32))
 
         self.gridLayout.addWidget(self.startButton, 1, 0, 1, 1)
 
         self.settingsButton = QPushButton(self.centralwidget)
         self.settingsButton.setObjectName(u"settingsButton")
+        icon2 = QIcon()
+        icon2.addFile(u":/win/settings.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.settingsButton.setIcon(icon2)
+        self.settingsButton.setIconSize(QSize(32, 32))
 
         self.gridLayout.addWidget(self.settingsButton, 1, 1, 1, 1)
 
         self.exitButton = QPushButton(self.centralwidget)
         self.exitButton.setObjectName(u"exitButton")
+        icon3 = QIcon()
+        icon3.addFile(u":/win/close.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.exitButton.setIcon(icon3)
+        self.exitButton.setIconSize(QSize(32, 32))
 
         self.gridLayout.addWidget(self.exitButton, 1, 2, 1, 1)
 

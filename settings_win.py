@@ -42,6 +42,7 @@ class SettingsWindow(QWidget, Settings):
         settings_file.close()
 
         self.ui.comboLanguage.setCurrentText(settings[:3])
+        self.set_language()
 
     def set_language(self) -> None:
         self.ui.comboLanguage.setCurrentText(self.settings[:3])

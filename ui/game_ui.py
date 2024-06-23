@@ -33,7 +33,7 @@ class Ui_GameWindow(object):
         font.setWeight(75)
         GameWindow.setFont(font)
         icon = QIcon()
-        icon.addFile(u":/icon/gallow.png", QSize(), QIcon.Normal, QIcon.Off)
+        icon.addFile(u":/icon/game.png", QSize(), QIcon.Normal, QIcon.Off)
         GameWindow.setWindowIcon(icon)
         self.gridLayout = QGridLayout(GameWindow)
         self.gridLayout.setObjectName(u"gridLayout")
@@ -73,6 +73,10 @@ class Ui_GameWindow(object):
         sizePolicy2.setVerticalStretch(0)
         sizePolicy2.setHeightForWidth(self.checkWord.sizePolicy().hasHeightForWidth())
         self.checkWord.setSizePolicy(sizePolicy2)
+        icon1 = QIcon()
+        icon1.addFile(u":/win/accept.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.checkWord.setIcon(icon1)
+        self.checkWord.setIconSize(QSize(64, 64))
 
         self.formLayout.setWidget(0, QFormLayout.FieldRole, self.checkWord)
 

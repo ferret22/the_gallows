@@ -1,5 +1,15 @@
 <RCC>
   <qresource prefix="icon">
+    <file>settings.png</file>
+    <file>game.png</file>
     <file>gallow.png</file>
+  </qresource>
+  <qresource prefix="win">
+    <file>accept.png</file>
+    <file>default.png</file>
+    <file>diskette.png</file>
+    <file>close.png</file>
+    <file>settings.png</file>
+    <file>game.png</file>
   </qresource>
 </RCC>

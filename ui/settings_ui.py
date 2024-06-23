@@ -33,7 +33,7 @@ class Ui_SettingsWindow(object):
         font.setWeight(75)
         SettingsWindow.setFont(font)
         icon = QIcon()
-        icon.addFile(u":/icon/gallow.png", QSize(), QIcon.Normal, QIcon.Off)
+        icon.addFile(u":/icon/settings.png", QSize(), QIcon.Normal, QIcon.Off)
         SettingsWindow.setWindowIcon(icon)
         self.gridLayout = QGridLayout(SettingsWindow)
         self.gridLayout.setObjectName(u"gridLayout")
@@ -62,16 +62,28 @@ class Ui_SettingsWindow(object):
         self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
         self.defaultButton = QPushButton(SettingsWindow)
         self.defaultButton.setObjectName(u"defaultButton")
+        icon1 = QIcon()
+        icon1.addFile(u":/win/default.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.defaultButton.setIcon(icon1)
+        self.defaultButton.setIconSize(QSize(30, 30))
 
         self.horizontalLayout_2.addWidget(self.defaultButton)
 
         self.cancelButton = QPushButton(SettingsWindow)
         self.cancelButton.setObjectName(u"cancelButton")
+        icon2 = QIcon()
+        icon2.addFile(u":/win/close.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.cancelButton.setIcon(icon2)
+        self.cancelButton.setIconSize(QSize(32, 32))
 
         self.horizontalLayout_2.addWidget(self.cancelButton)
 
         self.saveButton = QPushButton(SettingsWindow)
         self.saveButton.setObjectName(u"saveButton")
+        icon3 = QIcon()
+        icon3.addFile(u":/win/diskette.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.saveButton.setIcon(icon3)
+        self.saveButton.setIconSize(QSize(24, 24))
 
         self.horizontalLayout_2.addWidget(self.saveButton)
 

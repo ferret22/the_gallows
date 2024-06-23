@@ -41,7 +41,7 @@
   </property>
   <property name="windowIcon">
    <iconset resource="icons/icons.qrc">
-    <normaloff>:/icon/gallow.png</normaloff>:/icon/gallow.png</iconset>
+    <normaloff>:/icon/game.png</normaloff>:/icon/game.png</iconset>
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="0" column="0">
@@ -93,6 +93,16 @@
        </property>
        <property name="text">
         <string>Проверить букву</string>
+       </property>
+       <property name="icon">
+        <iconset resource="icons/icons.qrc">
+         <normaloff>:/win/accept.png</normaloff>:/win/accept.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>64</width>
+         <height>64</height>
+        </size>
        </property>
       </widget>
      </item>
