@@ -2,6 +2,7 @@ from PySide2.QtWidgets import QWidget
 from ui.settings_ui import Ui_SettingsWindow
 import files
 from settings import Settings
+from words_getter import open_word_file
 
 
 class SettingsWindow(QWidget, Settings):
@@ -45,9 +46,16 @@ class SettingsWindow(QWidget, Settings):
         self.settings = self.load_settings()
         self.ui.comboLanguage.setCurrentText(self.settings[:3])
 
+        rus_len = len(open_word_file(files.words_ru))
+        eng_len = len(open_word_file(files.words_en))
         translate = self.open_translate()
 
         self.ui.label.setText(translate[7])
         self.ui.defaultButton.setText(translate[8])
         self.ui.cancelButton.setText(translate[9])
         self.ui.saveButton.setText(translate[10])
+        self.ui.groupBox.setTitle(translate[15])
+        self.ui.labelRus.setText(f'RUS - {rus_len} {translate[16]}')
+        self.ui.labelEng.setText(f'ENG - {eng_len} {translate[16]}')
+        self.ui.rusButton.setText(translate[17])
+        self.ui.engButton.setText(translate[17])
