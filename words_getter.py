@@ -36,8 +36,14 @@ def open_words(settings: str) -> list[str] | bool:
             return False
 
 
+def write_words(file: str, words: list[str]) -> None:
+    with open(file, 'w', encoding='UTF-8') as word_file:
+        word_file.writelines(words)
+    word_file.close()
+
+
 def open_word_file(file: str) -> list[str]:
-    with open(file, 'r') as path_file:
+    with open(file, 'r', encoding='UTF-8') as path_file:
         words = path_file.readlines()
         words = refactor_words(words)
         return words

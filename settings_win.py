@@ -2,7 +2,9 @@ from PySide2.QtWidgets import QWidget
 from ui.settings_ui import Ui_SettingsWindow
 import files
 from settings import Settings
-from words_getter import open_word_file
+from words_getter import open_word_file, write_words
+import tkinter as tk
+from tkinter.filedialog import askopenfilename
 
 
 class SettingsWindow(QWidget, Settings):
@@ -19,6 +21,8 @@ class SettingsWindow(QWidget, Settings):
         self.ui.cancelButton.clicked.connect(self.cancel_settings)
         self.ui.saveButton.clicked.connect(self.save_settings)
         self.ui.defaultButton.clicked.connect(self.set_default_settings)
+        self.ui.rusButton.clicked.connect(lambda _: self.upload_dictionary(1))
+        self.ui.engButton.clicked.connect(lambda _: self.upload_dictionary(2))
 
     def cancel_settings(self) -> None:
         self.parent_win.set_language()
@@ -29,7 +33,7 @@ class SettingsWindow(QWidget, Settings):
 
     def save_settings(self) -> None:
         language = self.ui.comboLanguage.currentText()
-        with open(files.settings_file, 'w') as language_file:
+        with open(files.settings_file, 'w', encoding='UTF-8') as language_file:
             language_file.write(language + '\n')
         language_file.close()
 
@@ -41,6 +45,29 @@ class SettingsWindow(QWidget, Settings):
         self.settings = self.load_settings()
         self.ui.comboLanguage.setCurrentText(self.settings[:3])
         self.set_language()
+
+    def upload_dictionary(self, language: int) -> None:
+        translate = self.open_translate()
+        root = tk.Tk()
+        root.withdraw()
+
+        filetypes = ((f"{translate[18]}", "*.txt"), (f"{translate[18]}", "*.rtf"))
+        file_path = askopenfilename(title="Open file", initialdir="/", filetypes=filetypes)
+        idx = file_path.rfind('/')
+        file_name = file_path[idx + 1:]
+
+        if file_name:
+            with open(file_name, 'r', encoding='UTF-8') as file:
+                words = file.readlines()
+            file.close()
+
+            match language:
+                case 1:
+                    write_words(files.words_ru, words)
+                case 2:
+                    write_words(files.words_en, words)
+
+            self.set_language()
 
     def set_language(self) -> None:
         self.settings = self.load_settings()

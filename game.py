@@ -18,7 +18,7 @@ class GameWindow(QWidget, Settings):
 
         self.random_word = Word(select_random_word(self.settings))
 
-        self.ui.tryNum.display(self.random_word.tries)
+        self.ui.tryNum.display(self.random_word.tries + 1)
         self.ui.wordLabel.setText('*' * self.random_word.length)
 
         self.ui.checkWord.clicked.connect(self.check_sign)
@@ -53,7 +53,6 @@ class GameWindow(QWidget, Settings):
 
             if lose_flag:
                 self.ui.wordLabel.setText(self.random_word.letters)
-                self.ui.tryNum.display(self.random_word.tries)
 
                 if win_flag:
                     self.show_msg_info(f"{translate[13]}\n{translate[3]}: {self.random_word.word}",
@@ -64,6 +63,7 @@ class GameWindow(QWidget, Settings):
                 self.set_disabled()
 
         self.ui.signEdit.setText('')
+        self.ui.tryNum.display(self.random_word.tries + 1)
 
     def set_disabled(self) -> None:
         self.ui.signEdit.setDisabled(True)
