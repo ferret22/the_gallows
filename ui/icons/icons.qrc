@@ -5,6 +5,8 @@
     <file>gallow.png</file>
   </qresource>
   <qresource prefix="win">
+    <file>united-kingdom.png</file>
+    <file>russia.png</file>
     <file>accept.png</file>
     <file>default.png</file>
     <file>diskette.png</file>

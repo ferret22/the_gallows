@@ -35,8 +35,8 @@ class Ui_SettingsWindow(object):
         icon = QIcon()
         icon.addFile(u":/icon/settings.png", QSize(), QIcon.Normal, QIcon.Off)
         SettingsWindow.setWindowIcon(icon)
-        self.gridLayout = QGridLayout(SettingsWindow)
-        self.gridLayout.setObjectName(u"gridLayout")
+        self.gridLayout_2 = QGridLayout(SettingsWindow)
+        self.gridLayout_2.setObjectName(u"gridLayout_2")
         self.horizontalLayout = QHBoxLayout()
         self.horizontalLayout.setObjectName(u"horizontalLayout")
         self.label = QLabel(SettingsWindow)
@@ -45,50 +45,101 @@ class Ui_SettingsWindow(object):
         self.horizontalLayout.addWidget(self.label)
 
         self.comboLanguage = QComboBox(SettingsWindow)
-        self.comboLanguage.addItem("")
-        self.comboLanguage.addItem("")
+        icon1 = QIcon()
+        icon1.addFile(u":/win/russia.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.comboLanguage.addItem(icon1, "")
+        icon2 = QIcon()
+        icon2.addFile(u":/win/united-kingdom.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.comboLanguage.addItem(icon2, "")
         self.comboLanguage.setObjectName(u"comboLanguage")
+        self.comboLanguage.setIconSize(QSize(32, 32))
 
         self.horizontalLayout.addWidget(self.comboLanguage)
 
 
-        self.gridLayout.addLayout(self.horizontalLayout, 0, 0, 1, 1)
+        self.gridLayout_2.addLayout(self.horizontalLayout, 0, 0, 1, 1)
+
+        self.groupBox = QGroupBox(SettingsWindow)
+        self.groupBox.setObjectName(u"groupBox")
+        self.gridLayout = QGridLayout(self.groupBox)
+        self.gridLayout.setObjectName(u"gridLayout")
+        self.verticalLayout = QVBoxLayout()
+        self.verticalLayout.setObjectName(u"verticalLayout")
+        self.horizontalLayout_3 = QHBoxLayout()
+        self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
+        self.labelRus = QLabel(self.groupBox)
+        self.labelRus.setObjectName(u"labelRus")
+
+        self.horizontalLayout_3.addWidget(self.labelRus)
+
+        self.rusButton = QPushButton(self.groupBox)
+        self.rusButton.setObjectName(u"rusButton")
+        self.rusButton.setIcon(icon1)
+        self.rusButton.setIconSize(QSize(32, 32))
+
+        self.horizontalLayout_3.addWidget(self.rusButton)
+
+
+        self.verticalLayout.addLayout(self.horizontalLayout_3)
+
+        self.horizontalLayout_4 = QHBoxLayout()
+        self.horizontalLayout_4.setObjectName(u"horizontalLayout_4")
+        self.labelEng = QLabel(self.groupBox)
+        self.labelEng.setObjectName(u"labelEng")
+
+        self.horizontalLayout_4.addWidget(self.labelEng)
+
+        self.engButton = QPushButton(self.groupBox)
+        self.engButton.setObjectName(u"engButton")
+        self.engButton.setIcon(icon2)
+        self.engButton.setIconSize(QSize(32, 32))
+
+        self.horizontalLayout_4.addWidget(self.engButton)
+
+
+        self.verticalLayout.addLayout(self.horizontalLayout_4)
+
+
+        self.gridLayout.addLayout(self.verticalLayout, 0, 0, 1, 1)
+
+
+        self.gridLayout_2.addWidget(self.groupBox, 0, 1, 2, 1)
 
         self.verticalSpacer = QSpacerItem(20, 209, QSizePolicy.Minimum, QSizePolicy.Expanding)
 
-        self.gridLayout.addItem(self.verticalSpacer, 1, 1, 1, 1)
+        self.gridLayout_2.addItem(self.verticalSpacer, 1, 0, 1, 1)
 
         self.horizontalLayout_2 = QHBoxLayout()
         self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
         self.defaultButton = QPushButton(SettingsWindow)
         self.defaultButton.setObjectName(u"defaultButton")
-        icon1 = QIcon()
-        icon1.addFile(u":/win/default.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.defaultButton.setIcon(icon1)
+        icon3 = QIcon()
+        icon3.addFile(u":/win/default.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.defaultButton.setIcon(icon3)
         self.defaultButton.setIconSize(QSize(30, 30))
 
         self.horizontalLayout_2.addWidget(self.defaultButton)
 
         self.cancelButton = QPushButton(SettingsWindow)
         self.cancelButton.setObjectName(u"cancelButton")
-        icon2 = QIcon()
-        icon2.addFile(u":/win/close.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.cancelButton.setIcon(icon2)
+        icon4 = QIcon()
+        icon4.addFile(u":/win/close.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.cancelButton.setIcon(icon4)
         self.cancelButton.setIconSize(QSize(32, 32))
 
         self.horizontalLayout_2.addWidget(self.cancelButton)
 
         self.saveButton = QPushButton(SettingsWindow)
         self.saveButton.setObjectName(u"saveButton")
-        icon3 = QIcon()
-        icon3.addFile(u":/win/diskette.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.saveButton.setIcon(icon3)
+        icon5 = QIcon()
+        icon5.addFile(u":/win/diskette.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.saveButton.setIcon(icon5)
         self.saveButton.setIconSize(QSize(24, 24))
 
         self.horizontalLayout_2.addWidget(self.saveButton)
 
 
-        self.gridLayout.addLayout(self.horizontalLayout_2, 2, 0, 1, 2)
+        self.gridLayout_2.addLayout(self.horizontalLayout_2, 2, 0, 1, 2)
 
 
         self.retranslateUi(SettingsWindow)
@@ -102,6 +153,11 @@ class Ui_SettingsWindow(object):
         self.comboLanguage.setItemText(0, QCoreApplication.translate("SettingsWindow", u"RUS", None))
         self.comboLanguage.setItemText(1, QCoreApplication.translate("SettingsWindow", u"ENG", None))
 
+        self.groupBox.setTitle(QCoreApplication.translate("SettingsWindow", u"\u0421\u0442\u0430\u0442\u0443\u0441 \u0441\u043b\u043e\u0432\u0430\u0440\u0435\u0439", None))
+        self.labelRus.setText(QCoreApplication.translate("SettingsWindow", u"RUS - ... \u0441\u043b\u043e\u0432", None))
+        self.rusButton.setText(QCoreApplication.translate("SettingsWindow", u"\u0417\u0430\u0433\u0440\u0443\u0437\u0438\u0442\u044c", None))
+        self.labelEng.setText(QCoreApplication.translate("SettingsWindow", u"ENG - ... \u0441\u043b\u043e\u0432", None))
+        self.engButton.setText(QCoreApplication.translate("SettingsWindow", u"\u0417\u0430\u0433\u0440\u0443\u0437\u0438\u0442\u044c", None))
         self.defaultButton.setText(QCoreApplication.translate("SettingsWindow", u"\u041f\u043e \u0443\u043c\u043e\u043b\u0447\u0430\u043d\u0438\u044e", None))
         self.cancelButton.setText(QCoreApplication.translate("SettingsWindow", u"\u041e\u0442\u043c\u0435\u043d\u0430", None))
         self.saveButton.setText(QCoreApplication.translate("SettingsWindow", u"\u0421\u043e\u0445\u0440\u0430\u043d\u0438\u0442\u044c", None))

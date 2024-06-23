@@ -32,19 +32,17 @@ class SettingsWindow(QWidget, Settings):
             language_file.write(language + '\n')
         language_file.close()
 
+        self.ui.comboLanguage.setCurrentText(language)
         self.set_language()
 
     def set_default_settings(self) -> None:
         self.set_default()
-
-        with open(files.settings_file, 'r') as settings_file:
-            settings = settings_file.read()
-        settings_file.close()
-
-        self.ui.comboLanguage.setCurrentText(settings[:3])
+        self.settings = self.load_settings()
+        self.ui.comboLanguage.setCurrentText(self.settings[:3])
         self.set_language()
 
     def set_language(self) -> None:
+        self.settings = self.load_settings()
         self.ui.comboLanguage.setCurrentText(self.settings[:3])
 
         translate = self.open_translate()
