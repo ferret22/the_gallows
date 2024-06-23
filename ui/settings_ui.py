@@ -18,50 +18,61 @@ class Ui_SettingsWindow(object):
         if not SettingsWindow.objectName():
             SettingsWindow.setObjectName(u"SettingsWindow")
         SettingsWindow.resize(679, 344)
+        sizePolicy = QSizePolicy(QSizePolicy.Fixed, QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(SettingsWindow.sizePolicy().hasHeightForWidth())
+        SettingsWindow.setSizePolicy(sizePolicy)
+        SettingsWindow.setMinimumSize(QSize(679, 344))
+        SettingsWindow.setMaximumSize(QSize(679, 344))
         font = QFont()
         font.setFamily(u"Bahnschrift Condensed")
         font.setPointSize(26)
         font.setBold(True)
         font.setWeight(75)
         SettingsWindow.setFont(font)
-        self.widget = QWidget(SettingsWindow)
-        self.widget.setObjectName(u"widget")
-        self.widget.setGeometry(QRect(10, 10, 137, 50))
-        self.horizontalLayout = QHBoxLayout(self.widget)
+        self.gridLayout = QGridLayout(SettingsWindow)
+        self.gridLayout.setObjectName(u"gridLayout")
+        self.horizontalLayout = QHBoxLayout()
         self.horizontalLayout.setObjectName(u"horizontalLayout")
-        self.horizontalLayout.setContentsMargins(0, 0, 0, 0)
-        self.label = QLabel(self.widget)
+        self.label = QLabel(SettingsWindow)
         self.label.setObjectName(u"label")
 
         self.horizontalLayout.addWidget(self.label)
 
-        self.comboLanguage = QComboBox(self.widget)
+        self.comboLanguage = QComboBox(SettingsWindow)
         self.comboLanguage.addItem("")
         self.comboLanguage.addItem("")
         self.comboLanguage.setObjectName(u"comboLanguage")
 
         self.horizontalLayout.addWidget(self.comboLanguage)
 
-        self.widget1 = QWidget(SettingsWindow)
-        self.widget1.setObjectName(u"widget1")
-        self.widget1.setGeometry(QRect(30, 260, 621, 81))
-        self.horizontalLayout_2 = QHBoxLayout(self.widget1)
+
+        self.gridLayout.addLayout(self.horizontalLayout, 0, 0, 1, 1)
+
+        self.verticalSpacer = QSpacerItem(20, 209, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.gridLayout.addItem(self.verticalSpacer, 1, 1, 1, 1)
+
+        self.horizontalLayout_2 = QHBoxLayout()
         self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
-        self.horizontalLayout_2.setContentsMargins(0, 0, 0, 0)
-        self.defaultButton = QPushButton(self.widget1)
+        self.defaultButton = QPushButton(SettingsWindow)
         self.defaultButton.setObjectName(u"defaultButton")
 
         self.horizontalLayout_2.addWidget(self.defaultButton)
 
-        self.cancelButton = QPushButton(self.widget1)
+        self.cancelButton = QPushButton(SettingsWindow)
         self.cancelButton.setObjectName(u"cancelButton")
 
         self.horizontalLayout_2.addWidget(self.cancelButton)
 
-        self.saveButton = QPushButton(self.widget1)
+        self.saveButton = QPushButton(SettingsWindow)
         self.saveButton.setObjectName(u"saveButton")
 
         self.horizontalLayout_2.addWidget(self.saveButton)
+
+
+        self.gridLayout.addLayout(self.horizontalLayout_2, 2, 0, 1, 2)
 
 
         self.retranslateUi(SettingsWindow)

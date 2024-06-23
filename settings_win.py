@@ -6,11 +6,12 @@ from settings import Settings
 
 class SettingsWindow(QWidget, Settings):
 
-    def __init__(self, parent=None):
+    def __init__(self, parent=None, parent_win=None):
         super().__init__(parent)
         self.ui = Ui_SettingsWindow()
         self.ui.setupUi(self)
 
+        self.parent_win = parent_win
         self.settings = self.load_settings()
         self.set_language()
 
@@ -19,6 +20,7 @@ class SettingsWindow(QWidget, Settings):
         self.ui.defaultButton.clicked.connect(self.set_default_settings)
 
     def cancel_settings(self) -> None:
+        self.parent_win.set_language()
         self.close()
 
     def save_settings(self) -> None:
@@ -38,7 +40,7 @@ class SettingsWindow(QWidget, Settings):
 
         self.ui.comboLanguage.setCurrentText(settings[:3])
 
-    def set_language(self):
+    def set_language(self) -> None:
         self.ui.comboLanguage.setCurrentText(self.settings[:3])
 
         translate = self.open_translate()
