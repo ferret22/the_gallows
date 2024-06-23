@@ -12,6 +12,7 @@ from PySide2.QtCore import *
 from PySide2.QtGui import *
 from PySide2.QtWidgets import *
 
+import ui.icons.icons
 
 class Ui_GameWindow(object):
     def setupUi(self, GameWindow):
@@ -31,6 +32,9 @@ class Ui_GameWindow(object):
         font.setBold(True)
         font.setWeight(75)
         GameWindow.setFont(font)
+        icon = QIcon()
+        icon.addFile(u":/icon/gallow.png", QSize(), QIcon.Normal, QIcon.Off)
+        GameWindow.setWindowIcon(icon)
         self.gridLayout = QGridLayout(GameWindow)
         self.gridLayout.setObjectName(u"gridLayout")
         self.verticalLayout = QVBoxLayout()

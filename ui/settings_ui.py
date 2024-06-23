@@ -12,6 +12,7 @@ from PySide2.QtCore import *
 from PySide2.QtGui import *
 from PySide2.QtWidgets import *
 
+import ui.icons.icons
 
 class Ui_SettingsWindow(object):
     def setupUi(self, SettingsWindow):
@@ -31,6 +32,9 @@ class Ui_SettingsWindow(object):
         font.setBold(True)
         font.setWeight(75)
         SettingsWindow.setFont(font)
+        icon = QIcon()
+        icon.addFile(u":/icon/gallow.png", QSize(), QIcon.Normal, QIcon.Off)
+        SettingsWindow.setWindowIcon(icon)
         self.gridLayout = QGridLayout(SettingsWindow)
         self.gridLayout.setObjectName(u"gridLayout")
         self.horizontalLayout = QHBoxLayout()

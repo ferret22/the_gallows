@@ -1,0 +1,5 @@
+<RCC>
+  <qresource prefix="icon">
+    <file>gallow.png</file>
+  </qresource>
+</RCC>
