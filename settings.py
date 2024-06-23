@@ -6,17 +6,17 @@ class Settings:
 
     @staticmethod
     def set_default() -> None:
-        with open(files.default_settings, 'r') as default_settings:
+        with open(files.default_settings, 'r', encoding='UTF-8') as default_settings:
             settings = default_settings.read()
         default_settings.close()
 
-        with open(files.settings_file, 'w') as settings_file:
+        with open(files.settings_file, 'w', encoding='UTF-8') as settings_file:
             settings_file.write(settings)
         settings_file.close()
 
     @staticmethod
     def load_settings() -> str:
-        with open(files.settings_file, 'r') as settings_file:
+        with open(files.settings_file, 'r', encoding='UTF-8') as settings_file:
             settings = settings_file.read()
         settings_file.close()
 

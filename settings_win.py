@@ -1,8 +1,8 @@
-from PySide2.QtWidgets import QWidget
+from PySide2.QtWidgets import QWidget, QMessageBox
 from ui.settings_ui import Ui_SettingsWindow
 import files
 from settings import Settings
-from words_getter import open_word_file, write_words
+from words_getter import open_word_file, write_words, read_words
 import tkinter as tk
 from tkinter.filedialog import askopenfilename
 
@@ -23,6 +23,7 @@ class SettingsWindow(QWidget, Settings):
         self.ui.defaultButton.clicked.connect(self.set_default_settings)
         self.ui.rusButton.clicked.connect(lambda _: self.upload_dictionary(1))
         self.ui.engButton.clicked.connect(lambda _: self.upload_dictionary(2))
+        self.ui.defaultDictionary.clicked.connect(self.set_default_dictionary)
 
     def cancel_settings(self) -> None:
         self.parent_win.set_language()
@@ -45,6 +46,23 @@ class SettingsWindow(QWidget, Settings):
         self.settings = self.load_settings()
         self.ui.comboLanguage.setCurrentText(self.settings[:3])
         self.set_language()
+
+    def set_default_dictionary(self):
+        translate = self.open_translate()
+
+        reply = QMessageBox.question(
+            self,
+            "Default dictionary",
+            f"{translate[20]}",
+            QMessageBox.Yes | QMessageBox.No
+        )
+
+        if reply == QMessageBox.Yes:
+            words_rus = read_words(files.default_ru_words)
+            words_eng = read_words(files.default_en_words)
+            write_words(files.words_ru, words_rus)
+            write_words(files.words_en, words_eng)
+            self.set_language()
 
     def upload_dictionary(self, language: int) -> None:
         translate = self.open_translate()
@@ -86,3 +104,4 @@ class SettingsWindow(QWidget, Settings):
         self.ui.labelEng.setText(f'ENG - {eng_len} {translate[16]}')
         self.ui.rusButton.setText(translate[17])
         self.ui.engButton.setText(translate[17])
+        self.ui.defaultDictionary.setText(translate[19])

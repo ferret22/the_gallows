@@ -42,11 +42,16 @@ def write_words(file: str, words: list[str]) -> None:
     word_file.close()
 
 
-def open_word_file(file: str) -> list[str]:
-    with open(file, 'r', encoding='UTF-8') as path_file:
-        words = path_file.readlines()
-        words = refactor_words(words)
+def read_words(file: str) -> list[str]:
+    with open(file, 'r', encoding='UTF-8') as word_file:
+        words = word_file.readlines()
         return words
+
+
+def open_word_file(file: str) -> list[str]:
+    words = read_words(file)
+    words = refactor_words(words)
+    return words
 
 
 def select_random_word(settings: str) -> str | bool:

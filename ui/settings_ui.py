@@ -37,6 +37,10 @@ class Ui_SettingsWindow(object):
         SettingsWindow.setWindowIcon(icon)
         self.gridLayout_2 = QGridLayout(SettingsWindow)
         self.gridLayout_2.setObjectName(u"gridLayout_2")
+        self.horizontalLayout_5 = QHBoxLayout()
+        self.horizontalLayout_5.setObjectName(u"horizontalLayout_5")
+        self.verticalLayout_2 = QVBoxLayout()
+        self.verticalLayout_2.setObjectName(u"verticalLayout_2")
         self.horizontalLayout = QHBoxLayout()
         self.horizontalLayout.setObjectName(u"horizontalLayout")
         self.label = QLabel(SettingsWindow)
@@ -57,7 +61,15 @@ class Ui_SettingsWindow(object):
         self.horizontalLayout.addWidget(self.comboLanguage)
 
 
-        self.gridLayout_2.addLayout(self.horizontalLayout, 0, 0, 1, 1)
+        self.verticalLayout_2.addLayout(self.horizontalLayout)
+
+        self.defaultDictionary = QPushButton(SettingsWindow)
+        self.defaultDictionary.setObjectName(u"defaultDictionary")
+
+        self.verticalLayout_2.addWidget(self.defaultDictionary)
+
+
+        self.horizontalLayout_5.addLayout(self.verticalLayout_2)
 
         self.groupBox = QGroupBox(SettingsWindow)
         self.groupBox.setObjectName(u"groupBox")
@@ -103,9 +115,12 @@ class Ui_SettingsWindow(object):
         self.gridLayout.addLayout(self.verticalLayout, 0, 0, 1, 1)
 
 
-        self.gridLayout_2.addWidget(self.groupBox, 0, 1, 2, 1)
+        self.horizontalLayout_5.addWidget(self.groupBox)
 
-        self.verticalSpacer = QSpacerItem(20, 209, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.gridLayout_2.addLayout(self.horizontalLayout_5, 0, 0, 1, 1)
+
+        self.verticalSpacer = QSpacerItem(20, 83, QSizePolicy.Minimum, QSizePolicy.Expanding)
 
         self.gridLayout_2.addItem(self.verticalSpacer, 1, 0, 1, 1)
 
@@ -139,7 +154,7 @@ class Ui_SettingsWindow(object):
         self.horizontalLayout_2.addWidget(self.saveButton)
 
 
-        self.gridLayout_2.addLayout(self.horizontalLayout_2, 2, 0, 1, 2)
+        self.gridLayout_2.addLayout(self.horizontalLayout_2, 2, 0, 1, 1)
 
 
         self.retranslateUi(SettingsWindow)
@@ -153,6 +168,7 @@ class Ui_SettingsWindow(object):
         self.comboLanguage.setItemText(0, QCoreApplication.translate("SettingsWindow", u"RUS", None))
         self.comboLanguage.setItemText(1, QCoreApplication.translate("SettingsWindow", u"ENG", None))
 
+        self.defaultDictionary.setText(QCoreApplication.translate("SettingsWindow", u"\u0421\u043b\u043e\u0432\u0430\u0440\u0438 \u043f\u043e \u0443\u043c\u043e\u043b\u0447\u0430\u043d\u0438\u044e", None))
         self.groupBox.setTitle(QCoreApplication.translate("SettingsWindow", u"\u0421\u0442\u0430\u0442\u0443\u0441 \u0441\u043b\u043e\u0432\u0430\u0440\u0435\u0439", None))
         self.labelRus.setText(QCoreApplication.translate("SettingsWindow", u"RUS - ... \u0441\u043b\u043e\u0432", None))
         self.rusButton.setText(QCoreApplication.translate("SettingsWindow", u"\u0417\u0430\u0433\u0440\u0443\u0437\u0438\u0442\u044c", None))
