@@ -71,11 +71,9 @@ class SettingsWindow(QWidget, Settings):
 
         filetypes = ((f"{translate[18]}", "*.txt"), (f"{translate[18]}", "*.rtf"))
         file_path = askopenfilename(title="Open file", initialdir="/", filetypes=filetypes)
-        idx = file_path.rfind('/')
-        file_name = file_path[idx + 1:]
 
-        if file_name:
-            with open(file_name, 'r', encoding='UTF-8') as file:
+        if file_path:
+            with open(file_path, 'r', encoding='UTF-8') as file:
                 words = file.readlines()
             file.close()
 
