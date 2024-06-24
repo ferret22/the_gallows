@@ -25,7 +25,7 @@ class Ui_SettingsWindow(object):
         sizePolicy.setHeightForWidth(SettingsWindow.sizePolicy().hasHeightForWidth())
         SettingsWindow.setSizePolicy(sizePolicy)
         SettingsWindow.setMinimumSize(QSize(679, 344))
-        SettingsWindow.setMaximumSize(QSize(800, 600))
+        SettingsWindow.setMaximumSize(QSize(1024, 600))
         font = QFont()
         font.setFamily(u"Bahnschrift Condensed")
         font.setPointSize(26)
