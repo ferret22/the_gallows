@@ -18,14 +18,14 @@ class Ui_GameWindow(object):
     def setupUi(self, GameWindow):
         if not GameWindow.objectName():
             GameWindow.setObjectName(u"GameWindow")
-        GameWindow.resize(768, 251)
+        GameWindow.resize(768, 240)
         sizePolicy = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(GameWindow.sizePolicy().hasHeightForWidth())
         GameWindow.setSizePolicy(sizePolicy)
-        GameWindow.setMinimumSize(QSize(0, 0))
-        GameWindow.setMaximumSize(QSize(768, 400))
+        GameWindow.setMinimumSize(QSize(768, 240))
+        GameWindow.setMaximumSize(QSize(1024, 800))
         font = QFont()
         font.setFamily(u"Bahnschrift Condensed")
         font.setPointSize(26)
